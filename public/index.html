@@ -1,3 +1,40 @@
-<div class="container">
-  <h1>Movie App</h1>
-</div>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Movie App</title>
+    <meta name="description" content="An app that gets movies by search and saves favorites">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <!-- API here -->
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Movies</h1>
+      <div>
+        <label for="t">Title:</label>
+        <input type="text" id="t" name="t">
+
+        <label for="y">Year:</label>
+        <input type="text" id="y" name="y">
+
+        <label>Plot:</label>
+        <select name="plot">
+            <option value="short" selected="">Short</option>
+            <option value="full">Full</option>
+        </select>
+
+        <label>Response:</label>
+
+        <button onclick="search()">Search</button>
+        <button onclick="reset(0)">Reset</button>
+      </div>
+      <hr>
+      <div>
+        <h2>Favorites</h2>
+        <button onclick="showFavorites(0)">Show favorites</button>
+      </div>
+    </div>
+  </body>
+</html>

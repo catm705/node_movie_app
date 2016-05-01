@@ -1,57 +1,74 @@
 var express = require( 'express' );
-var app = express();
-var apiRouter = express.Router();
+var mongoose = require( 'mongoose' );
+// connect to our database - hosted by modulus
+mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o');
 
+var app = express();
 var fs = require('fs');
 var path = require('path');
 var bodyParser = require( 'body-parser' );
+var port = process.env.port || 3000;
 
+var Favorite = require( './app/models/favorites' );
+
+//use means to use functions aka middleware.
 app.use( express.static( path.join(__dirname, '/public' )) );
 app.use( bodyParser.urlencoded( { extended: false } ) );
 app.use( bodyParser.json() );
-
 app.use('/', express.static( path.join( __dirname, 'public' ) ) );
 
+// ROUTES FOR OUR API
+var router = express.Router();
 
-// This is a router that gets endpoints of your site.
-app.get( '/favorites', function( req, res ) {
-  if ( !req.body.name || !req.body.oid ) {
-    res.send("Error");
-    return
-  }
-  else {
-    var data = JSON.parse( fs.readFileSync( './data.json' ) );
-    data.push( req.body );
-    fs.writeFile( './data.json', JSON.stringify( data ));
-
-    res.setHeader('Content-Type', 'application/json');
-    res.send( data );
-  }
+router.use( function( req, res, next ) {
+  console.log( "Something is happening." );
+  next();
 } );
 
-// These are considered 'middleware' aka 'filters'
-// Logger only does console.logs in the server shell
-function logger(req, res, next) {
-  console.log( new Date(), req.method, req.url );
-  next();
-}
+router.get( '/', function( req, res ) {
+  res.json( { message: "Hooray! Welcome to our api!" } );
+} );
 
-// When you write it shows up in the curl shell
-// function hello(req, res, next) {
-//   res.write( 'Hello \n' );
-//   next();
-// }
+// GET goes to the endpoint and gets all the favorites.
+// router.get( '/favorites', function( req, res ) {
+//   if ( !req.body.name || !req.body.oid ) {
+//     res.send("Error");
+//     return
+//   }
+//   else {
+//     var data = JSON.parse( fs.readFileSync( './data.json' ) );
+//     data.push( req.body );
+//     fs.writeFile( './data.json', JSON.stringify( data ));
 //
-// function bye( req,res, next ) {
-//   res.write( 'Bye \n' );
-//   res.end();
-// }
+//     res.setHeader('Content-Type', 'application/json');
+//     res.send( data );
+//   }
+// } );
 
-apiRouter.use( logger ); // This only happens on apiRouter
-app.use( hello, bye ); // This line first b/c it has an end(), code stops there.
-app.use( '/api', apiRouter );
+router.route( '/favorites' )
+  .post( function( req, res ) {
+    var favorite = new Favorite();
+
+    favorite.title = res.body.title;
+    // favorite.id = req.body.i;
+    // favorite.title = req.body.s;
+    // favorite.year = req.body.y;
+    // favorite.plot = req.body.plot;
+    // favorite.tomatoes = req.body.tomatoes;
+
+    favorite.save( function( err ) {
+      if ( err ) {
+        res.send( err );
+      }
+
+      res.json( { message: "Favorite saved!" } );
+    } );
+} );
+
+// REGISTER OUR ROUTES
+app.use( '/favorites', router );
 
 // Console.logs appear in the server shell
-var server = app.listen( 3000, function() {
-  console.log("We're listening on port 3000! :D");
+var server = app.listen( port, function() {
+  console.log("Magic happens on port 3000! :D");
 } );
