@@ -1,11 +1,36 @@
+body {
+  background-color: #106271;
+  font-size: 18px;
+}
+
+input {
+  margin-bottom: 15px;
+}
+
+input[type='button'] {
+  color: white;
+  background-color: blue;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: -20px;
+}
+
+button {
+  padding: 5px;
+  background-color: black;
+  color: white;
+}
+
 .container {
-  background-color: gray;
+  background-color: #c0c0c0;
   width: 800px;
   margin: 0 auto;
-  padding: 40px;
+  padding: 50px;
   margin-top: 30px;
   font-family: Georgia, Helvetica, Arial, sans-serif;
-  height: auto;
+  border-radius: 5px;
 }
 
 .list {

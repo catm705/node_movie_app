@@ -1,20 +1,18 @@
 // Dependencies
 // -----------------------------------------------------------
 var express = require( 'express' );
-// var movies = require( './public/js/main' );
-
 var bodyParser = require( 'body-parser' );
 var fs = require( 'fs' ); // file stream
 var path = require( 'path' );
 var http = require( 'http' );
 var port = process.env.port || 3000;
 
-var mongo = require( 'mongodb' ).MongoClient
+var mongoose = require( 'mongoose' );
 var app = express();
 
-// EXPRESS Configuration
-// Sets connection to our database - hosted by modulus
-// mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o');
+// EXPRESS Configuration - sets connection to our database - hosted by modulus
+mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o');
+mongoose.model('favorites', {});
 
 // all environments
 app.set( 'port', process.env.PORT || 3000 );
@@ -47,8 +45,6 @@ app.get( '/', function( req, res ) {
 } );
 
 app.get( '/favorites', function( req, res ) {
-  res.write( 'Favorites go here. \n');
-
   if ( !req.body.name || !req.body.oid ) {
     res.send("Error");
     return
@@ -60,7 +56,7 @@ app.get( '/favorites', function( req, res ) {
     fs.writeFile( './data.json', JSON.stringify( data ));
 
     res.setHeader('Content-Type', 'application/json');
-    res.send( data );
+    res.render( data );
   }
 } );
 

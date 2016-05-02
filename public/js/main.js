@@ -49,6 +49,13 @@ function displayContent() {
           }
         }
       }
+
+      var buttonnode= document.createElement('input' );
+      buttonnode.setAttribute( 'type','button' );
+      buttonnode.setAttribute( 'name','save' );
+      buttonnode.setAttribute( 'value','save' );
+      parentElement.appendChild( buttonnode );
+      buttonnode.onclick = saveFavorite;
     }
     else {
       console.log("There was a problem with the request.", xhr.status);
@@ -58,4 +65,8 @@ function displayContent() {
 
 function reset() {
   document.location.reload( '/' );
+}
+
+function saveFavorite( movieList ) {
+    debugger;
 }
