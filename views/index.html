@@ -15,20 +15,20 @@
         <a href="/favorites">Favorites</a>
       </div>
       <form>
-        <h1>{{title}}Movies</h1>
+        <h1>Movies/Series</h1>
         <div>
           <label for="t">Title:</label>
-          <input type="text" id="t" name="t">
+          <input type="text" id="title" name="title">
         </div>
         <div>
           <label>Response:</label>
           <button onclick="search(); return false;">Search</button>
-          <button onclick="reset(0); return false;">Reset</button>
+          <button onclick="reset(0);">Reset</button>
         </div>
         <hr>
         <div class="list">
-          <h2>Movie Search List: </h2>
-          <div id="movies">{{movieList}}</div>
+          <h2>Search List: </h2>
+          <div id="movies"></div>
         </div>
         <hr>
         <div>

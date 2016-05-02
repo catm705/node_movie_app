@@ -1,9 +1,7 @@
 // Dependencies
 // -----------------------------------------------------------
 var express = require( 'express' );
-// var routes = require( './app/routes' );
-// var favorites = require( './app/routes/favorites' );
-var movies = require( './public/js/main' );
+// var movies = require( './public/js/main' );
 
 var bodyParser = require( 'body-parser' );
 var fs = require( 'fs' ); // file stream
@@ -37,9 +35,6 @@ app.use('/', express.static( path.join( __dirname, 'public' ) ) );
 
 // Routing
 app.get( '/', function( req, res ) {
-  console.log("req", req);
-  console.log("res", res);
-
   if ( req.url.indexOf( '/scripts' ) >= 0 ) {
     render( req.url.slice( 1 ), 'application/javascript', httpHandler );
   }
@@ -47,13 +42,11 @@ app.get( '/', function( req, res ) {
     // Send Ajax Response
   }
   else {
-    res.render( 'index', movies );
+    res.render( 'index' );
   }
 } );
 
-// GET goes to the endpoint and gets all the favorites.
 app.get( '/favorites', function( req, res ) {
-  console.log("Favorites page");
   res.write( 'Favorites go here. \n');
 
   if ( !req.body.name || !req.body.oid ) {
@@ -62,7 +55,6 @@ app.get( '/favorites', function( req, res ) {
   }
   else {
     var data = JSON.parse( fs.readFileSync( './data.json' ) );
-    console.log("data: ", data );
 
     data.push( req.body );
     fs.writeFile( './data.json', JSON.stringify( data ));
