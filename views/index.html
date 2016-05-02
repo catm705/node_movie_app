@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Movie App</title>
+    <meta name="description" content="An app that gets movies by search and saves favorites">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- API here -->
+
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <a href="/favorites">Favorites</a>
+      </div>
+      <form>
+        <h1>{{title}}Movies</h1>
+        <div>
+          <label for="t">Title:</label>
+          <input type="text" id="t" name="t">
+        </div>
+        <div>
+          <label>Response:</label>
+          <button onclick="search(); return false;">Search</button>
+          <button onclick="reset(0); return false;">Reset</button>
+        </div>
+        <hr>
+        <div class="list">
+          <h2>Movie Search List: </h2>
+          <div id="movies">{{movieList}}</div>
+        </div>
+        <hr>
+        <div>
+          <h2>Favorites</h2>
+          <button onclick="showFavorites(0)">Show favorites</button>
+        </div>
+    </form>
+
+  </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

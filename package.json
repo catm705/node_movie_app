@@ -2,16 +2,19 @@
   "name": "js-coding-challenge",
   "version": "0.0.0",
   "description": "JS Server for WDI code challenge",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node app.js"
   },
-  "author": "Cat Gelinas <catgelinas78@gmail.com> (https://github.com/darthneel)",
+  "author": "Cat Gelinas <catgelinas78@gmail.com> (https://github.com/catm705)",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.12.0",
     "express": "^4.12.2",
+    "jade": "*",
     "mongoose": "~3.6.13",
-    "body-parser": "^1.12.0"
+    "socket.io": "^1.4.5",
+    "stylus": "*"
   }
 }
