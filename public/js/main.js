@@ -1,4 +1,3 @@
-console.log("Hello world?");
 var xhr;
 var movieUrl = 'https://www.omdbapi.com/?';
 var movieList;

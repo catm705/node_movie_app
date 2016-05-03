@@ -7,15 +7,11 @@ var path = require( 'path' );
 var http = require( 'http' );
 var hbs = require('express-handlebars');
 var cors = require('cors');
-
-var mongoose = require( 'mongoose' );
 var routes = require('./app/routes/index');
 var app = express();
 app.use(cors());
 
 // EXPRESS Configuration - sets connection to our database - hosted by modulus
-// mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o');
-// mongoose.model('favorites', {});
 
 // all environments
 app.set( 'port', process.env.PORT || 3000 );
@@ -27,8 +23,6 @@ app.set( 'view engine', 'hbs' );
 app.set( 'layout', 'layout' );
 app.enable( 'view cache' );
 
-
-
 //'use' means to use functions aka middleware.
 app.use( bodyParser.urlencoded( { extended: false } ) );
 app.use( bodyParser.json() );
@@ -36,7 +30,6 @@ app.use('/', express.static( path.join( __dirname, 'public' ) ) );
 
 // Routing
 app.use( '/', routes );
-
 
 // Console.logs appear in the server shell
 var server = app.listen( process.env.PORT || 3000, function() {
