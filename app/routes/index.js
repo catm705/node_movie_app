@@ -4,6 +4,9 @@ var mongo = require('mongodb').MongoClient;
 var objectId = require('mongodb').ObjectID;
 var assert = require('assert');
 
+// Locally you need a different variable for url instead of heroku's MONGODB_URI
+// var mongoUrl = = "mongodb://localhost:27020/mydb";
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
