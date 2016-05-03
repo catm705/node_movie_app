@@ -1,6 +1,6 @@
 console.log("Hello world?");
 var xhr;
-var movieUrl = 'http://www.omdbapi.com/?';
+var movieUrl = 'https://www.omdbapi.com/?';
 var movieList;
 
 
