@@ -5,7 +5,6 @@ var bodyParser = require( 'body-parser' );
 var fs = require( 'fs' ); // file stream
 var path = require( 'path' );
 var http = require( 'http' );
-var port = process.env.port || 3000;
 var hbs = require('express-handlebars');
 
 var mongoose = require( 'mongoose' );
@@ -38,7 +37,7 @@ app.use( '/', routes );
 
 
 // Console.logs appear in the server shell
-var server = app.listen( port, function() {
+var server = app.listen( 3000, function() {
   console.log( "*************" );
   console.log( "Magic happens on port 3000! :D" );
 } );
