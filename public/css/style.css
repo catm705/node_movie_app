@@ -1,5 +1,6 @@
 body {
-  background: url(https://qzprod.files.wordpress.com/2016/03/game-of-thrones-hbo-e1459361565519.jpeg?quality=80&strip=all&w=1600);
+  background: url(http://i.kinja-img.com/gawker-media/image/upload/rf43tonxlgoce756tsav.jpg);
+  background-repeat: no-repeat;
   font-size: 18px;
   padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -7,6 +8,20 @@ body {
 
 h1, h2, h3, label {
   color: white;
+}
+
+h1, h2, h3 {
+  color: #b27fb2;
+  font-family: 'Open Sans';
+  text-align: center;
+}
+
+h1 {
+  font-size: 38px;
+}
+
+a {
+  text-decoration: none;
 }
 
 input {
@@ -28,12 +43,6 @@ ul {
   width: 80px;
   padding: 5px;
   color: white;
-}
-
-.button a {
-  padding: 5px;
-  color: white;
-  text-decoration: none;
 }
 
 .container {
@@ -76,6 +85,10 @@ section:last-of-type {
 section h3 {
   border-bottom: 1px solid black;
   padding-bottom: 5px;
+}
+
+section h3 a {
+  color: #b27fb2;
 }
 
 .insert {
