@@ -6,10 +6,12 @@ var fs = require( 'fs' ); // file stream
 var path = require( 'path' );
 var http = require( 'http' );
 var hbs = require('express-handlebars');
+var cors = require('cors');
 
 var mongoose = require( 'mongoose' );
 var routes = require('./app/routes/index');
 var app = express();
+app.use(cors());
 
 // EXPRESS Configuration - sets connection to our database - hosted by modulus
 // mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o');
