@@ -1,24 +1,26 @@
 
-  <div class="container">
-    <form>
-      <h1>Movies/Series</h1>
-      <div class="">
-        <label for="t">Search Title:</label>
-        <input type="text" id="title" name="title">
-      </div>
-      <div>
-        <button onclick="search(); return false;">Search</button>
-        <button onclick="reset(0);">Reset</button>
-      </div>
-      <hr>
+<div class="container">
+  <h1>Movies/Series</h1>
+  <form class="search-form">
+    <div>
+      <label for="t">Search Title:</label>
+      <input type="text" id="title" name="title">
+    </div>
+    <div>
+      <button onclick="search(); return false;">Search</button>
+      <button onclick="reset(0);">Reset</button>
+    </div>
+    <hr>
 
-      <form action="/insert" method="post">
-        <h2>Search List: </h2>
-        <div class="list">
-          <div id="movies"></div>
-        </div>
-      </form>
+    <form action="/insert" method="post">
+      <h2>Search List: </h2>
+      <div class="list">
+        <div id="movies"></div>
+      </div>
+    </form>
   </form>
+  <br>
+
   <section class="insert">
     <h3>Add Favorite</h3>
     <form action="/insert" method="post">

@@ -1,6 +1,12 @@
-/*body {
-  background-color: #106271;
+body {
+  background: url(https://qzprod.files.wordpress.com/2016/03/game-of-thrones-hbo-e1459361565519.jpeg?quality=80&strip=all&w=1600);
   font-size: 18px;
+  padding: 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, label {
+  color: white;
 }
 
 input {
@@ -17,15 +23,11 @@ ul {
   margin-left: -20px;
 }
 
-button {
-  background-color: black;
-  color: white;
-}
-
 .button {
   background-color: black;
   width: 80px;
   padding: 5px;
+  color: white;
 }
 
 .button a {
@@ -35,12 +37,11 @@ button {
 }
 
 .container {
-  background-color: #c0c0c0;
-  width: 800px;
+  background-color: black;
+  width: 700px;
   margin: 0 auto;
-  padding: 50px;
+  padding: 20px;
   margin-top: 30px;
-  font-family: Georgia, Helvetica, Arial, sans-serif;
   border-radius: 5px;
 }
 
@@ -48,11 +49,6 @@ button {
   overflow: scroll;
   min-height: 100px;
   background-color: white;
-}*/
-
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -63,14 +59,14 @@ section {
   float: left;
   background: #bdc3c7;
   padding: 10px;
-  margin: 30px;
+  margin: 15px;
   width: 300px;
   box-shadow: 3px 3px 1px #34495e;
   min-height: 400px;
 }
 
 section:first-of-type {
-  margin-left: 0;
+  margin-left: 15px;
 }
 
 section:last-of-type {
@@ -83,19 +79,23 @@ section h3 {
 }
 
 .insert {
-  background: #2ecc71;
+  background: black;
 }
 
 .get {
-  background: #ecf0f1;
+  background: black;
+}
+
+.insert, .get {
+  margin-top: 75px;
 }
 
 .update {
-  background: #3498db;
+  background: black;
 }
 
 .delete {
-  background: #e74c3c;
+  background: black;
 }
 
 .input label {
