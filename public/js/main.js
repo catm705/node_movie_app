@@ -37,7 +37,7 @@ function displayContent() {
       parentElement.appendChild( ulElement );
       var newContent;
 
-      var objKeys = ['Title', 'Year', 'Director', 'Actors', 'Plot'];
+      var objKeys = ['Title', 'Year', 'Director', 'Actors'];
 
       for ( var k in movieList ) {
         for ( i = 0; i <= objKeys.length - 1; i++ ) {
@@ -50,12 +50,7 @@ function displayContent() {
         }
       }
 
-      var buttonnode= document.createElement('input' );
-      buttonnode.setAttribute( 'type','button' );
-      buttonnode.setAttribute( 'name','save' );
-      buttonnode.setAttribute( 'value','save' );
-      parentElement.appendChild( buttonnode );
-      buttonnode.onclick = saveFavorite;
+      return movieList;
     }
     else {
       console.log("There was a problem with the request.", xhr.status);
@@ -65,8 +60,4 @@ function displayContent() {
 
 function reset() {
   document.location.reload( '/' );
-}
-
-function saveFavorite( movieList ) {
-    debugger;
 }
