@@ -39,7 +39,7 @@ app.use( '/', routes );
 
 
 // Console.logs appear in the server shell
-var server = app.listen( process.env.PORT || 5000, function() {
+var server = app.listen( process.env.PORT || 3000, function() {
   console.log( "*************" );
   console.log( "Magic happens on port 3000! :D" );
 } );
