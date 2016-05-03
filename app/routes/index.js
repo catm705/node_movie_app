@@ -74,6 +74,7 @@ router.post('/delete', function(req, res, next) {
       assert.equal(null, err);
       console.log('Item deleted');
       db.close();
+      res.render('index');
     });
   });
 });
