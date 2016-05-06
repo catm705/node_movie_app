@@ -6,10 +6,10 @@ var movieList;
 var search = function() {
   var searchTerm = document.getElementById( 'title' ).value;
   searchTerm = encodeURIComponent( searchTerm );
-  searchUrl = movieUrl + "t=" + searchTerm;
+  searchUrl = movieUrl + "s=" + searchTerm;
 
   getMovies( searchUrl );
-}
+};
 
 function getMovies( url ) {
   xhr = new XMLHttpRequest();
@@ -28,7 +28,6 @@ function displayContent() {
   if ( xhr.readyState === XMLHttpRequest.DONE ) {
     if ( xhr.status === 200 ) {
       movieList = JSON.parse( xhr.responseText );
-      console.log( movieList );
 
       var parentElement = document.getElementById( 'movies' );
       var ulElement = document.createElement( 'ul' );
@@ -36,18 +35,26 @@ function displayContent() {
       parentElement.appendChild( ulElement );
       var newContent;
 
-      var objKeys = ['Title', 'Year', 'Director', 'Actors'];
+      var objKeys = ['Title', 'Year' ];
 
-      for ( var k in movieList ) {
-        for ( i = 0; i <= objKeys.length - 1; i++ ) {
-          if ( k == objKeys[i] ) {
-            var liElement = document.createElement( 'li' );
-            newContent = document.createTextNode( objKeys[i] + ": " + movieList[k] );
-            liElement.appendChild( newContent );
-            ulElement.appendChild( liElement );
+        for ( i = 0; i <= movieList[ 'Search' ].length - 1; i++ ) {
+          for ( var k in movieList[ 'Search' ][ i ] ) {
+            for ( j = 0; j <= objKeys.length - 1; j ++ ) {
+              if ( k == objKeys[ j ] ) {
+                var liElement = document.createElement( 'li' );
+                newContent = document.createTextNode( objKeys[ j ] + ": " + movieList[ 'Search'][ i ][ k ] );
+                liElement.appendChild( newContent );
+                ulElement.appendChild( liElement );
+                var br = document.createElement("br");
+
+                if ( k == "Year" ) {
+                  ulElement.appendChild( br );
+                }
+              }
+            }
           }
         }
-      }
+
 
       return movieList;
     }
