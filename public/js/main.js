@@ -48,7 +48,9 @@ function displayContent() {
                 var br = document.createElement("br");
 
                 if ( k == "Year" ) {
+                  
                   ulElement.appendChild( br );
+
                 }
               }
             }

@@ -31,8 +31,6 @@ router.post('/insert', function(req, res, next) {
   var item = {
     title: req.body.title,
     year: req.body.year,
-    director: req.body.director,
-    actors: req.body.actors
   };
 
   mongo.connect(process.env.MONGODB_URI, function(err, db) {

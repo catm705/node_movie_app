@@ -11,12 +11,12 @@
       <button onclick="reset(0);">Reset</button>
     </div>
 
-    <form action="/insert" method="post">
+    <div>
       <h2>Search List: </h2>
       <div class="list">
         <div id="movies"></div>
       </div>
-    </form>
+    </div>
   </form>
   <br>
 
@@ -43,8 +43,6 @@
               <article class="item">
                   <div>Title: {{ this.title }}</div>
                   <div>Year: {{ this.year }}</div>
-                  <div>Director: {{ this.director }}</div>
-                  <div>Actors: {{ this.actors }}</div>
                   <div>ID: {{ this._id }}</div>
               </article>
           {{/each}}
