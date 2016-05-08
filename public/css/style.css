@@ -91,23 +91,28 @@ section h3 a {
   color: #b27fb2;
 }
 
-.insert {
-  background: black;
+.first {
+  width: 515px;
+  margin-left: 5px;
 }
 
-.get {
-  background: black;
+.second {
+  width: 70px;
 }
 
-.insert, .get {
+.first, .second {
+  border: none;
+}
+
+.favorite {
+  height: 30px;
+  width: 95px;
+  background-color: purple;
+  color: white;
+}
+
+.get, .delete {
   margin-top: 75px;
-}
-
-.update {
-  background: black;
-}
-
-.delete {
   background: black;
 }
 

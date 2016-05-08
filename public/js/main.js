@@ -30,33 +30,58 @@ function displayContent() {
       movieList = JSON.parse( xhr.responseText );
 
       var parentElement = document.getElementById( 'movies' );
-      var ulElement = document.createElement( 'ul' );
-      ulElement.id = 'searchList';
-      parentElement.appendChild( ulElement );
-      var newContent;
 
       var objKeys = ['Title', 'Year' ];
 
         for ( i = 0; i <= movieList[ 'Search' ].length - 1; i++ ) {
+          var form = document.createElement("form");
+
+          var element1 = document.createElement("input");
+          element1.className += "first";
+
+          var element2 = document.createElement("input");
+          form.action = "/insert";
+          form.method = "POST";
+          element2.className += "second";
+          form.appendChild( element1 );
+          form.appendChild( element1 );
+
+          parentElement.appendChild( form );
+          form.appendChild( element1 );
+          form.appendChild( element2 );
+
           for ( var k in movieList[ 'Search' ][ i ] ) {
             for ( j = 0; j <= objKeys.length - 1; j ++ ) {
               if ( k == objKeys[ j ] ) {
-                var liElement = document.createElement( 'li' );
-                newContent = document.createTextNode( objKeys[ j ] + ": " + movieList[ 'Search'][ i ][ k ] );
-                liElement.appendChild( newContent );
-                ulElement.appendChild( liElement );
-                var br = document.createElement("br");
+                if ( k == "Title" ) {
+                  value1 = movieList[ 'Search'][ i ][ k ];
+                  element1.name = "Title";
+                  element1.id = "Title";
+                  element1.value = value1;
+
+                  // form.appendChild( element1 );
+                }
 
                 if ( k == "Year" ) {
-                  
-                  ulElement.appendChild( br );
+                  value2 = movieList[ 'Search'][ i ][ k ];
+                  element2.name = "Year";
+                  element2.id = "Year";
+                  element2.value = value2;
+                  // form.appendChild( element2 );
 
+                  var button = document.createElement("button");
+                  button.setAttribute( 'type', 'submit' );
+                  button.className = 'favorite';
+                  button.innerText = 'Add to Favs';
+                  console.log("button: ", button );
+                  // debugger;
+                  form.appendChild( button );
+                  console.log("form:", form );
                 }
               }
             }
           }
         }
-
 
       return movieList;
     }
@@ -67,5 +92,7 @@ function displayContent() {
 }
 
 function reset() {
-  document.location.reload( '/' );
+  // document.location.reload( '/' );
+  var parentElement = document.getElementById( 'movies' );
+  parentElement.innerHTML = '';
 }
