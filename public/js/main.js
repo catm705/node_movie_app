@@ -35,7 +35,6 @@ function displayContent() {
 
         for ( i = 0; i <= movieList[ 'Search' ].length - 1; i++ ) {
           var form = document.createElement("form");
-
           var element1 = document.createElement("input");
           element1.className += "first";
 
@@ -43,8 +42,6 @@ function displayContent() {
           form.action = "/insert";
           form.method = "POST";
           element2.className += "second";
-          form.appendChild( element1 );
-          form.appendChild( element1 );
 
           parentElement.appendChild( form );
           form.appendChild( element1 );
@@ -58,8 +55,6 @@ function displayContent() {
                   element1.name = "Title";
                   element1.id = "Title";
                   element1.value = value1;
-
-                  // form.appendChild( element1 );
                 }
 
                 if ( k == "Year" ) {
@@ -67,16 +62,13 @@ function displayContent() {
                   element2.name = "Year";
                   element2.id = "Year";
                   element2.value = value2;
-                  // form.appendChild( element2 );
 
                   var button = document.createElement("button");
                   button.setAttribute( 'type', 'submit' );
                   button.className = 'favorite';
                   button.innerText = 'Add to Favs';
-                  console.log("button: ", button );
-                  // debugger;
+
                   form.appendChild( button );
-                  console.log("form:", form );
                 }
               }
             }
